@@ -24,13 +24,13 @@ import io.cdap.cdap.api.annotation.MetadataProperty;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
 import io.cdap.cdap.etl.api.FailureCollector;
-import io.cdap.cdap.etl.api.batch.BatchSinkContext;
 import io.cdap.cdap.etl.api.batch.BatchSource;
 import io.cdap.cdap.etl.api.batch.BatchSourceContext;
 import io.cdap.cdap.etl.api.connector.Connector;
 import io.cdap.plugin.common.Asset;
 import io.cdap.plugin.common.ConfigUtil;
 import io.cdap.plugin.common.LineageRecorder;
+import io.cdap.plugin.db.SchemaReader;
 import io.cdap.plugin.db.batch.config.AbstractDBSpecificSourceConfig;
 import io.cdap.plugin.db.batch.source.AbstractDBSource;
 import io.cdap.plugin.util.DBUtils;
@@ -76,6 +76,11 @@ public class MysqlSource extends AbstractDBSource<MysqlSource.MysqlSourceConfig>
                                       mysqlSourceConfig.database, mysqlSourceConfig.getReferenceName());
     Asset asset = Asset.builder(mysqlSourceConfig.getReferenceName()).setFqn(fqn).build();
     return new LineageRecorder(context, asset);
+  }
+
+  @Override
+  protected SchemaReader getSchemaReader() {
+    return new MysqlSchemaReader(mysqlSourceConfig.getConnectionArguments());
   }
 
   /**
