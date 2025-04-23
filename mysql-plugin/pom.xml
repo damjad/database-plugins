@@ -26,6 +26,7 @@
   <name>Mysql plugin</name>
   <artifactId>mysql-plugin</artifactId>
   <modelVersion>4.0.0</modelVersion>
+  <version>1.9.4.3_jet</version>
   
   <dependencies>
     <dependency>
@@ -35,7 +36,7 @@
     <dependency>
       <groupId>io.cdap.plugin</groupId>
       <artifactId>database-commons</artifactId>
-      <version>${project.version}</version>
+      <version>${parent.version}</version>
     </dependency>
     <dependency>
       <groupId>io.cdap.plugin</groupId>
@@ -50,7 +51,7 @@
     <dependency>
       <groupId>io.cdap.plugin</groupId>
       <artifactId>database-commons</artifactId>
-      <version>${project.version}</version>
+      <version>${parent.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>
