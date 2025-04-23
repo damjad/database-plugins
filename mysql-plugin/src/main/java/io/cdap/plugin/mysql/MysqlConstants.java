@@ -40,6 +40,7 @@ public final class MysqlConstants {
   public static final String MYSQL_CONNECTION_STRING_FORMAT = "jdbc:mysql://%s:%s/%s";
   public static final String USE_CURSOR_FETCH = "useCursorFetch";
   public static final String ZERO_DATE_TIME_BEHAVIOR = "zeroDateTimeBehavior";
+  public static final String TRANSACTION_ISOLATION_LEVEL = "transactionIsolationLevel";
 
   /**
    * Query to set SQL_MODE system variable.
